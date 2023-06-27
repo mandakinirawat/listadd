@@ -4,6 +4,8 @@
   for (const number of numbers) {
     lookup[number] = (lookup[number] ?? 0) + 1;
   }
+
+  
   console.log(
     numbers.reduce(
       (acc, curr) => ({
@@ -102,14 +104,14 @@
   ]), []))
 
   const arr1 = [12, 3, 5, 12, 6, 3, 4, 5, 6, 5];
-  // const b =  arr1.reduce((acc, curr) => {
-  //   if (acc.findIndex((curr) === -1)) {
-  //       acc.push(curr);
-  //     }
-  //   return acc;
-  //   }, []);
+  const b =  arr1.reduce((acc, curr) => {
+    if (acc.findIndex((curr) === -1)) {
+        acc.push(curr);
+      }
+    return acc;
+    }, []);
 
-  //   console.log(b);
+    console.log(b);
 
   console.log(
     arr1.reduce((acc, curr) => {
@@ -131,4 +133,26 @@
 
   
 
- 
+ const fruits = ['apple', 'mango', 'strawberry'];
+const vegetables = ['Tomato', 'Potatp', 'Onoion'];
+// ['a', 'm', 's']
+
+const printFirstLetter = (str) => str.charAt(0);
+const printAsciiLetter = (str) => str.toUpperCase();
+
+Array.prototype.traverse = function(logic) {
+    const output = [];
+    for(let i=0; i< this.length; i++) 
+        output.push(logic(this[i]))
+    return output;
+}
+
+console.log(vegetables.traverse(printAsciiLetter))
+  
+console.log(fruits.traverse(printFirstLetter))
+
+String.prototype.toMyCase = function() {
+    return this[0].toLowerCase() + this.slice(1, -1).toUpperCase() + this[this.length - 1].toLowerCase();
+}
+
+console.log('mbhjgGTyufFfvYR'.toMyCase())
